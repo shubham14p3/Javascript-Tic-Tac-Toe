@@ -1,4 +1,5 @@
-// using the object oriented way
+import '../styles/reset.css';
+import '../styles/main.css';
 
 const boardUtils = (function boardUtils() {
   const WINNING_COMBINATIONS = [
@@ -17,8 +18,6 @@ const boardUtils = (function boardUtils() {
 }());
 
 const gameUtils = (function gameUtils() {
-  const container = document.getElementById('container');
-
   const winningMessage = (player) => winDrawUI(`Congratulation ${player} is the winner!!`);
 
   const drawMessage = () => winDrawUI("It's a draw ");
@@ -26,6 +25,7 @@ const gameUtils = (function gameUtils() {
   const handleGameReset = () => window.location.reload();
 
   const winDrawUI = (message) => {
+    const container = document.getElementById('container');
     const div = document.createElement('div');
     div.setAttribute('class', 'bg-dark');
     const hide = document.getElementById('hide');
@@ -68,16 +68,19 @@ const gameUtils = (function gameUtils() {
 }());
 
 const form = document.getElementById('welcome-form');
-form.addEventListener('submit', (event) => {
-  const player1 = document.getElementById('player-one-name').value || 'player1';
-  const player2 = document.getElementById('player-two-name').value || 'player2';
-  const board = document.getElementById('play-area');
-  event.preventDefault();
-  form.classList.toggle('none');
-  board.classList.toggle('none');
 
-  const game = new TicTacToe(player1, player2);
-  game.start();
+document.addEventListener('DOMContentLoaded', () => {
+  form.addEventListener('submit', (event) => {
+    const player1 = document.getElementById('player-one-name').value || 'player1';
+    const player2 = document.getElementById('player-two-name').value || 'player2';
+    const board = document.getElementById('play-area');
+    event.preventDefault();
+    form.classList.toggle('none');
+    board.classList.toggle('none');
+
+    const game = new TicTacToe(player1, player2);
+    game.start();
+  });
 });
 
 function TicTacToe(player1, player2) {
@@ -142,6 +145,7 @@ function Player(name, board, signature) {
 
   this.myTurn = function myTurn() {
     board.cells.forEach((cell) => {
+      cell.setAttribute('data-clickable', 'true');
       if (cell.innerHTML === '') {
         cell.addEventListener('click', makeMove);
       }
@@ -151,9 +155,11 @@ function Player(name, board, signature) {
     const { target } = event;
     target.innerText = this.signature;
     board.cells.forEach((element) => {
+      element.setAttribute('data-clickable', 'true');
       element.removeEventListener('click', makeMove, { useCapture: true });
     });
   };
+  this.playerMove = makeMove;
 }
 
 function Board() {
@@ -167,7 +173,7 @@ function Board() {
     boardUtils.WINNING_COMBINATIONS.forEach((combination) => {
       const firstCell = positions[combination[0]].innerText;
       const secondCell = positions[combination[1]].innerText;
-      const thirdCell = positions[combination[2]].innerText;
+      const thirdCell = positions[combination[2]].innerText || '';
 
       const confirmWin = firstCell !== ''
         && secondCell === firstCell
@@ -191,3 +197,12 @@ function Board() {
     });
   };
 }
+
+const game = {
+  Board,
+  Player,
+  gameUtils,
+  boardUtils,
+};
+
+export default game;

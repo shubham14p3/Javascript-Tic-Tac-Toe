@@ -31,19 +31,73 @@ In this project,we are building a Tic Tac Toe game made on Javascript.The tic-ta
 
 ## Built With
 
+```sh
+Front-End(client)
+```
+
 - HTML + CSS
 - JavaScript
 - Bootstrap
 
+```sh
+Testing Frameworks
+```
+
+- Jest
+
 ## Getting Started
 
-To get started with the app, cd to the directory where you would like the repo to live by typing on your terminal:
+To get a local copy up and running follow these simple example steps.
 
-Clone the repo typing:
+### Prerequisites
 
+- Node
+
+- Basic knowledge of npm/yarn
+
+### Installation
+
+1. Clone the repo
+
+```sh
+git clone https://github.com/Cyrus-Kiprop/Javascript-Tic-Tac-Toe.git
 ```
-$git clone https://github.com/Cyrus-Kiprop/Javascript-Tic-Tac-Toe.git
+
+2. CD into the project root directory
+
+```sh
+cd ./Javascript-Tic-Tac-Toe.git
 ```
+
+3. Install Dependencies and packages
+
+```sh
+npm install
+```
+
+4. Build the files
+
+```sh
+npm run build
+```
+
+<!-- USAGE EXAMPLES -->
+
+## Usage
+
+Open the index.html file using live servers.
+
+```sh
+right click on index.html file and open it with the browser or with live server.
+```
+
+### Navigate to your browser and open port 8080 (use your live server port):
+
+```JS
+http//localhost:8080
+```
+
+### Enjoy the game
 
 # Rules
 
@@ -81,6 +135,22 @@ The match is over if the winnning critera is met, or else the match will be a dr
 Reset - The data of Players will be not saved and the user need to provide the entire data once more at the beggining.
 Restart- The player is taken back to thr board, and the players can replay the game.
 
+## Roadmap
+
+See the [open issues](https://github.com/Cyrus-Kiprop/Javascript-Tic-Tac-Toe/issues) for a list of proposed features (and known issues).
+
+<!-- CONTRIBUTING -->
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/NewAwesomeFeature`)
+3. Commit your Changes (`git commit -m 'Add some NewAmazingFeature'`)
+4. Push to the Branch (`git push origin feature/NewAmazingFeature`)
+5. Open a Pull Request
+
 ## Authors
 
 👤 **Cyrus Kiprop**
@@ -94,12 +164,6 @@ Restart- The player is taken back to thr board, and the players can replay the g
 - Github: [@ShubhamRaj](https://github.com/shubham14p3)
 - Linkedin: [Shubham14p3](https://www.linkedin.com/in/shubham14p3/)
 
-## 🤝 Contributing
-
-Contributions, issues and feature requests are welcome!
-
-Feel free to check the [issues page](https://github.com/Cyrus-Kiprop/Javascript-Tic-Tac-Toe/issues/).
-
 ## Show your support
 
 Give a ⭐️ if you like this project!
@@ -108,7 +172,7 @@ Give a ⭐️ if you like this project!
 
 - Project requested by [Microverse Program](https://www.microverse.org/).
 
-## Future Enhancement 
+## Future Enhancement
 
 - Adding Validation.
 - Adding AI Logic.
